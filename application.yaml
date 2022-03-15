@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kustomize-argocd
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Sweetmine/kustomize-argocd.git
+    targetRevision: HEAD
+    path: kustomize-argocd
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kustomizeapp
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
