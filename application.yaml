@@ -9,10 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Sweetmine/kustomize-argocd.git
     targetRevision: HEAD
-    path:
-      - kustomize/base
-      - kustomize/overlays/dev
-      - kustomize/overlays/prod
+    path: kustomize/overlays/dev
   destination:
     server: https://kubernetes.default.svc
     namespace: kustomizeapp
