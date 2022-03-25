@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+    env: dev
+    owner: sweetmine
+  name: dev-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+      env: dev
+      owner: sweetmine
+  template:
+    metadata:
+      labels:
+        app: nginx
+        env: dev
+        owner: sweetmine
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
